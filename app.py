@@ -21,4 +21,11 @@ def print_all_aircraft():
     db.close()
 
 #main code
-print_all_aircraft()
+while True:
+    user_input = input("What would you like to do? \n 1. Print all airfract \n 2. Exit \n")
+    if user_input == '1':
+        print_all_aircraft()
+    if user_input == '2':
+        break
+    else:
+        print("Invalid input, please try again")

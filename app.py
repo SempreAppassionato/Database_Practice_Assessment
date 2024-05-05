@@ -1,11 +1,24 @@
+#firstName-lastName MMXXIV
+
+#imports the sqlite3 module
 import sqlite3
 
-db = sqlite3.connect('fighters.db')
-cursor = db.cursor()
+#Constants and variables
+DATABASE = 'fighters.db'
 
-query = "SELECT * FROM fighter"
-cursor.execute(query)
+#functions
+def print_all_aircraft():
+    db = sqlite3.connect(DATABASE)
+    cursor = db.cursor()
 
-results = cursor.fetchall()
-print(results)
-db.close()
+    query = "SELECT * FROM fighter"
+    cursor.execute(query)
+
+    results = cursor.fetchall()
+    #loop through the results and print them
+    for fighter in results:
+        print(f"{fighter[1]:<30}{fighter[2]:<8}{fighter[3]:<6}{fighter[4]:<6}{fighter[5]:<6}{fighter[6]:<6}")
+    db.close()
+
+#main code
+print_all_aircraft()
